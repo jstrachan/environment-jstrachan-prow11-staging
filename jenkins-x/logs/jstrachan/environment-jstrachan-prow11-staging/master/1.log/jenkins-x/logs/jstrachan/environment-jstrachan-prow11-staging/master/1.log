@@ -1,0 +1,34 @@
+Step: build-step-credential-initializer:
+
+{"level":"warn","ts":1548061749.6709096,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/test\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1548061749.6719437,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-0:
+
+{"level":"warn","ts":1548061752.6594868,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/test\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1548061753.821552,"logger":"fallback-logger","caller":"git-init/main.go:92","msg":"Successfully cloned \"https://github.com/jstrachan/environment-jstrachan-prow11-staging.git\" @ \"cf51486a202834770fd1fa0b402147f70c85a3e1\" in path \"/workspace\""}
+Step: build-step-apply:
+
+Modified file /workspace/env/Chart.yaml to set the chart to version 1
+Adding missing Helm repo: jenkins-x http://chartmuseum.jenkins-x.io
+Successfully added Helm repository jenkins-x.
+Adding missing Helm repo: releases http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository releases.
+Applying helm chart at . as release name jx to namespace jx-staging
+Using values files: values.yaml
+Applying generated chart . YAML via kubectl in dir: /tmp/helm-template-workdir-445757486/jx/output
+role.rbac.authorization.k8s.io/cleanup created
+rolebinding.rbac.authorization.k8s.io/cleanup created
+serviceaccount/cleanup created
+deployment.extensions/jx-demo252 created
+release.jenkins.io/demo252-0.0.1 created
+service/demo252 created
+configmap/exposecontroller created
+role.rbac.authorization.k8s.io/expose created
+rolebinding.rbac.authorization.k8s.io/expose created
+serviceaccount/expose created
+Applying Helm hook post-upgrade YAML via kubectl in file: /tmp/helm-template-workdir-445757486/jx/helmHooks/env/charts/expose/templates/job.yaml
+job.batch/expose created
+Waiting for helm post-upgrade hook Job expose to complete before removing it
+Deleting helm hook sources from file: /tmp/helm-template-workdir-445757486/jx/helmHooks/env/charts/expose/templates/job.yaml
+job.batch "expose" deleted
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=jx,jenkins.io/version!=1
